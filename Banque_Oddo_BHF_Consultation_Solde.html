@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banque Oddo BHF - Consultation de Solde</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .account-info { display: none; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion à votre compte</h1>
+        <form id="loginForm">
+            <label for="email">Identifiant</label>
+            <input type="email" id="email" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" required>
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <div class="account-info" id="accountInfo">
+            <h2>Informations du compte</h2>
+            <p><strong>Nom du propriétaire :</strong> David Frescura</p>
+            <p><strong>Profession :</strong> Concessionnaire automobile</p>
+            <p><strong>Date de création du compte :</strong> 2016</p>
+            <p><strong>IBAN :</strong> FR76 1234 5678 9012 3456 7890 123</p>
+            <p><strong>BIC :</strong> ODDOFRPPXXX</p>
+            <p><strong>Solde gelé :</strong> 160.000€</p>
+            <p><strong>Solde disponible :</strong> 25.000€ (Restriction : Limite mensuelle de retrait atteinte. Disponible le 15 janvier)</p>
+            <h3>Historique des transactions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Montant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/12/2024</td>
+                        <td>Virement</td>
+                        <td>500€</td>
+                    </tr>
+                    <tr>
+                        <td>05/12/2024</td>
+                        <td>Réception</td>
+                        <td>2.000€</td>
+                    </tr>
+                    <tr>
+                        <td>10/12/2024</td>
+                        <td>Retrait</td>
+                        <td>-200€</td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Virement</td>
+                        <td>1.500€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (email === 'davidfrescura7@gmail.com' && password === '190224A') {
+                document.getElementById('accountInfo').style.display = 'block';
+                alert('Connexion réussie!');
+            } else {
+                alert('Identifiant ou mot de passe incorrect!');
+            }
+        };
+    </script>
+</body>
+</html>
